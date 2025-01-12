@@ -1,38 +1,27 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable */
-// @ts-nocheck
+import Image from "next/image";
 
-import BreadCrumb from "@/components/BreadCrumb";
-import Service from "@/components/Service";
-import Card from "@/components/Card";
-import Link from "next/link";
-import { secData ,type SecData } from "@/utils/dynamicpage";
-
-
-
-
-export default function Shop() {
-
-
+export default function HeroSection() {
   return (
-    <div>
-      <BreadCrumb title="Shop" url="shop" />
-      <div className="flex justify-center items-center mx-auto px-4 sm:px-6 md:px-16 lg:px-32">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {secData.map((cardData: SecData) => (
-            <Link
-              href={`/shop/${cardData.id}`}
-              key={cardData.id}
-              className="cursor-pointer"
-            >
-              <Card {...cardData} />
-            </Link>
-          ))}
-        </div>
+    <section className="bg-lightyellow pt-32 md:pt-0 flex flex-col md:flex-row justify-center items-center min-h-screen mx-auto px-4 sm:px-6 md:px-16 lg:px-32">
+      {/* Text Section */}
+      <div className="text-center md:text-left md:pl-8  ">
+        <h1 className="text-4xl md:text-6xl  font-light text-gray-800">
+          Rocket Single Seater
+        </h1>
+        <p className="text-lg text-gray-600 pt-12"><span className="border-b border-gray-400">Shop Now</span></p>
+
       </div>
-      <Service />
-    </div>
+
+      {/* Image Section */}
+      <div className="mt-8 md:mt-0  flex justify-center">
+        <Image
+          src="/hersofa.png"
+          alt="Hero"
+          width={1000}
+          height={1000}
+          priority
+        />
+      </div>
+    </section>
   );
 }
-
-
