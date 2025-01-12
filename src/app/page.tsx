@@ -23,6 +23,6 @@ export default function HeroSection() {
         />
       </div>
     </section>
-    </HeroTwo>
+    <HeroTwo/>
   );
 }
