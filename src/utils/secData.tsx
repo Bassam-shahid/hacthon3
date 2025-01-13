@@ -1,10 +1,10 @@
-interface SecData {
+interface types {
     image: string;
     title: string;
     price: number;
 }
 
-const secData: SecData[] = [
+const secData2: types[] = [
     {
         image: "/shortsec/modulasofa.png",
         title: "Trenton Modular Sofa_3",
@@ -27,5 +27,5 @@ const secData: SecData[] = [
     }
 ]
 
-export { secData} 
-export type {SecData}
+export { secData2} 
+export type {types}

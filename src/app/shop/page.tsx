@@ -1,18 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable */
 // @ts-nocheck
-
+"use client"
 import BreadCrumb from "@/components/BreadCrumb";
 import Service from "@/components/Service";
 import Card from "@/components/Card";
 import Link from "next/link";
-import { secData ,type SecData } from "@/utils/dynamicpage";
-
-
-
+import { secData, type SecData } from "@/utils/dynamicpage";
 
 export default function Shop() {
-
 
   return (
     <div>
@@ -21,8 +17,8 @@ export default function Shop() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {secData.map((cardData: SecData) => (
             <Link
-              href={`/shop/${cardData.id}`}
-              key={cardData.id}
+              href={`/shop/${cardData.id}`} // cardData.id کو صحیح طریقے سے پاس کریں
+              key={cardData.id} // یہاں cardData.id کا استعمال کریں
               className="cursor-pointer"
             >
               <Card {...cardData} />
@@ -34,5 +30,3 @@ export default function Shop() {
     </div>
   );
 }
-
-

@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image"
 import Link from "next/link"
 import BreadCrumb from "@/components/BreadCrumb"
@@ -6,14 +7,14 @@ import { CiInstagram } from "react-icons/ci";
 import { CiLinkedin } from "react-icons/ci";
 import { CiFacebook } from "react-icons/ci";
 import ShortSec from "@/components/ShortSec"
-import  {secData, type SecData}  from "@/utils/dynamicpage";
+import  {secData, type cardData}  from "@/utils/dynamicpage";
 
 
 
 
 
 export default async function ProductDetail({params}:{params:{productid:string}}) {
- const data = secData.find((item:SecData) => item.id === params.productid)
+ const data = secData.find((item:cardData) => item.id === params.productid)
   
   // const image = "hersofa.png"
   return (

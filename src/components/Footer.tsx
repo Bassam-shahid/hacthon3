@@ -1,95 +1,92 @@
 import Link from "next/link";
+import React from "react";
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer className="bg-gray-100 text-gray-800 w-full mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto px-4 py-8">
-        {/* Top Section */}
-        <div className="flex flex-col md:flex-row  gap-8">
+    <div>
+      <div className="w-full bg-white py-12 px-4">
+        <div className="max-w-[1240px] mx-auto flex flex-wrap justify-between items-start gap-8">
           {/* Address Section */}
-          <div className="md:w-1/3 flex flex-col justify-center">
-            <p className="font-extralight">400 University Drive Suite 200 Coral Gables,</p>
-            <p> FL 33134, USA</p>
+          <div className="w-full sm:w-[285px]">
+            <p className="font-[400] text-[16px] leading-[24px] text-[#9F9F9F] sm:mt-20">
+              400 University Drive Suite 200 Coral <br /> Gables, <br /> FL
+              33134 USA
+            </p>
           </div>
-
-          {/* Links and Help Section */}
-          <div className="flex flex-col md:flex-row gap-8 md:gap-16 w-2/3 justify-between">
-            {/* Links Section */}
-            <div>
-              <p className="font-bold text-lg mb-4">Links</p>
-              <ul className="space-y-6">
-                <li>
-                  <Link href="/" className="hover:text-black">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/shop" className="hover:text-black">
-                    Shop
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="hover:text-black">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-black">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
+          {/* Links Section */}
+          <div className="w-full sm:w-[352px] flex justify-between gap-8">
+            <div className="space-y-7 flex flex-col">
+              <p className="font-[500] text-[16px] leading-[24px] text-[#9F9F9F] cursor-pointer">
+                Link
+              </p>
+              <Link
+                href={"/"}
+                className="font-[500] text-[16px] leading-[24px] text-black cursor-pointer"
+              >
+                Home
+              </Link>
+              <Link
+                href={"/Shop"}
+                className="font-[500] text-[16px] leading-[24px] text-black cursor-pointer"
+              >
+                Shop
+              </Link>
+              <Link
+                href="/About"
+                className="font-[500] text-[16px] leading-[24px] text-black cursor-pointer"
+              >
+                About
+              </Link>
+              <Link
+                href="/Contact"
+                className="font-[500] text-[16px] leading-[24px] text-black cursor-pointer"
+              >
+                Contact
+              </Link>
             </div>
-
-            {/* Help Section */}
-            <div>
-              <p className="font-bold text-lg mb-4">Help</p>
-              <ul className="space-y-6">
-                <li>
-                  <Link href="/payment-options" className="hover:text-black">
-                    Payment Options
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/returns" className="hover:text-black">
-                    Returns
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/privacy-policy" className="hover:text-black">
-                    Privacy Policy
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Newsletter Section */}
-            <div>
-              <p className="font-bold text-lg mb-4">Newsletter</p>
-              <form className="flex flex-col space-y-2">
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400"
-                />
-                <button
-                  type="submit"
-                  className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800"
-                >
-                  Subscribe
-                </button>
-              </form>
+            <div className="space-y-7 ">
+              <p className="font-[500] text-[16px] leading-[24px] text-[#9F9F9F] cursor-pointer">
+                Help
+              </p>
+              <p className="font-[500] text-[16px] leading-[24px] text-black cursor-pointer">
+                Payment Options
+              </p>
+              <p className="font-[500] text-[16px] leading-[24px] text-black cursor-pointer">
+                Returns
+              </p>
+              <p className="font-[500] text-[16px] leading-[24px] text-black cursor-pointer">
+                Privacy Policies
+              </p>
             </div>
           </div>
-        </div>
-
-        {/* Bottom Section */}
-        <div className="mt-8 border-t border-gray-300 pt-4 text-start">
-          <p className="text-sm">
-            &copy; 2022 Meubel House. All Rights Reserved.
-          </p>
+          {/* email Section */}
+          <div className="w-full sm:w-[286px]">
+            <p className="font-[500] text-[16px] leading-[24px] text-[#9F9F9F]">
+              Newsletter
+            </p>
+            <div className="mt-5 flex items-center justify-center space-x-3">
+              <input
+                type="text"
+                placeholder="Enter Your Email Address"
+                className="w-[230px] font-[400] text-[14px] leading-[21px] border-b border-black focus:outline-none"
+              />
+              <button className="font-[500] text-[14px] leading-[21px] text-black border-b border-black px-4">
+                SUBSCRIBE
+              </button>
+            </div>
+          </div>
+          <div className="w-full h-auto">
+            <div className="border border-[#D9D9D9] mt-6"></div>
+            <div className="w-[306px] h-[24px]">
+              <p className="font-[400] text-[16px] leading-[24px] text-black mt-8">
+                2022 Meubel House. All rights reverved
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+    </div>
   );
-}
+};
+
+export default Footer;

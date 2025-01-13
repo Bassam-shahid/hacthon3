@@ -1,13 +1,52 @@
-interface SecData {
+  "use client"
+  import { createContext, useContext, useState } from "react";
+
+  // CartContext کی تخلیق
+  const CartContext = createContext<any>(null);
+  
+  // CartProvider: جو بھی کمپوننٹ اس کو لپیٹ دے گا، وہ cartData تک رسائی حاصل کر سکے گا
+  export const CartProvider = ({ children }: any) => {
+    const [cartData, setCartData] = useState<any[]>([]);
+  
+    const addToCart = (product: any) => {
+      setCartData((prev: any[]) => {
+        const isProductInCart = prev.find(item => item.id === product.id);
+        if (isProductInCart) {
+          return prev.map(item => 
+            item.id === product.id 
+              ? { ...item, quantity: item.quantity + 1 } 
+              : item
+          );
+        }
+        return [...prev, { ...product, quantity: 1 }];
+      });
+    };
+  
+    return (
+      <CartContext.Provider value={{ cartData, addToCart }}>
+        {children}
+      </CartContext.Provider>
+    );
+  };
+  
+  // useCart Hook: تاکہ آپ CartContext کو کہیں بھی استعمال کر سکیں
+  export const useCart = () => {
+    return useContext(CartContext);
+  };
+  interface cardData {
     id: string;
-    image: string;
     title: string;
+    image: string;
     price: number;
+    // اگر اور پراپرٹیز ہیں تو انہیں بھی شامل کریں
   }
+  
+  const secData: cardData[] = [
+    // آپ کا ڈیٹا یہاں ہو گا
+  
+  
 
-
-
-const secData: SecData[] = [
+  
     {
       id: "1",
       image: "/shortsec/modulasofa.png",
@@ -82,4 +121,4 @@ const secData: SecData[] = [
     }
   ];
 
-export {secData ,type SecData}
+export {secData ,type cardData}

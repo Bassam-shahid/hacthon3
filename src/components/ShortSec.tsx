@@ -1,6 +1,7 @@
 import Card from "@/components/Card";
-import { SecData } from "@/utils/secData";
-import { secData } from "@/utils/secData";
+import { types } from "@/utils/secData";
+import { secData2 } from "@/utils/secData";
+import { Type } from "lucide-react";
 
 export interface Sectiondata {
     title:string,
@@ -15,8 +16,8 @@ export default function ShortSec(data:Sectiondata) {
         <h1 className="text-4xl font-semibold">{data.title}</h1>
         {data.description && <p className="text-sm text-gray-600">{data.description}</p>}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {secData.map((cardData: SecData, index) => (
-            <Card key={index} {...cardData} />
+          {secData2.map((cardData: types, index) => (
+            <Type key={index} {...cardData} />
           ))}
         </div>
         <div>
