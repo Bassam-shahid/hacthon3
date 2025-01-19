@@ -9,22 +9,21 @@ import { CiInstagram } from "react-icons/ci";
 import { CiLinkedin } from "react-icons/ci";
 import { CiFacebook } from "react-icons/ci";
 import { secData, type cardData } from "@/utils/dynamicpage";
+import { secData2, types } from "./secData";
 
 // CartItem کی نوعیت کو ڈیفائن کریں
 interface CartItem {
-  id: string;
+  id: number;
   image: string;
   title: string;
   price: number;
   quantity: number;
 }
 
-export default function ProductDetail({
-  params,
-}: {
+export default function ProductDetail({params}: {
   params: { productid: string };
 }) {
-  const data = secData.find((item: cardData) => item.id === params.productid);
+  const data = secData.find((item:any ) => item.id === params.productid);
 
   // کارٹ کی حالت بنائیں
   const [cartData, setCartData] = useState<CartItem[]>([]);
@@ -35,23 +34,23 @@ export default function ProductDetail({
     if (!data) return; // Prevent adding if no data
 
     const newItem = {
-      id: data.id,
+      
       image: data.image,
       title: data.title,
       price: data.price,
       quantity,
     };
 
-    setCartData((prev) => {
-      const existingItem = prev.find((item) => item.id === newItem.id);
+    setCartData((secData2:any) => {
+      const existingItem = secData.find((item) => item.id === newItem.image);
       if (existingItem) {
-        return prev.map((item) =>
-          item.id === newItem.id
-            ? { ...item, quantity: item.quantity + quantity }
+        return secData.map((item) =>
+          item.id === newItem.image
+            ? { ...item, quantity: item.id }
             : item
         );
       } else {
-        return [...prev, newItem];
+        return [...secData2, newItem];
       }
     });
   };
@@ -150,20 +149,20 @@ export default function ProductDetail({
               </div>
             </div>
 
-            {/* رنگ کی سلیکشن */}
-            <div className="space-y-2">
-              <span className="text-sm">Color</span>
-              <div className="flex gap-2">
-                <button className="w-6 h-6 rounded-full bg-purple-600" />
-                <button className="w-6 h-6 rounded-full bg-black" />
-                <button className="w-6 h-6 rounded-full bg-yellow-700" />
-              </div>
-            </div>
+//             {/* رنگ کی سلیکشن */}
+//             <div className="space-y-2">
+//               <span className="text-sm">Color</span>
+//               <div className="flex gap-2">
+//                 <button className="w-6 h-6 rounded-full bg-purple-600" />
+//                 <button className="w-6 h-6 rounded-full bg-black" />
+//                 <button className="w-6 h-6 rounded-full bg-yellow-700" />
+//               </div>
+//             </div>
 
-            {/* کارٹ میں شامل کرنے کا بٹن */}
-            <div className="flex gap-4">
-              <div className="flex border">
-                <button
+//             {/* کارٹ میں شامل کرنے کا بٹن */}
+//             <div className="flex gap-4">
+//               <div className="flex border">
+//                 <button
                   onClick={() => handleQuantityChange("decrease")}
                   className="px-4 py-2 border-r"
                 >
@@ -215,15 +214,15 @@ export default function ProductDetail({
                   </Link>
                   <Link href="#" className="text-lg">
                     <CiInstagram />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <ShortSec title="More Products" />
-      <Service />
-    </div>
+//                   </Link>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//       <ShortSec title="More Products" />
+//       <Service />
+//     </div>
   );
 }

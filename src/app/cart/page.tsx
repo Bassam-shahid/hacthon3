@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -48,7 +49,7 @@ export default function Cart() {
       <div className="flex justify-center items-center mx-auto px-4 sm:px-6 md:px-16 lg:px-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Product Table  large screens*/}
+            {/* Product Table for large screens */}
             <div className="hidden sm:block lg:col-span-2 bg-white shadow-md rounded-lg">
               <table className="w-full border-collapse border border-gray-200">
                 <thead>
@@ -102,7 +103,7 @@ export default function Cart() {
               </table>
             </div>
             {/* Cart Totals */}
-            <div className="bg-morelightyellow shadow-md rounded-lg p-6 ">
+            <div className="bg-morelightyellow shadow-md rounded-lg p-6">
               <h2 className="text-lg font-semibold text-gray-700 border-b pb-4 mb-4">
                 Cart Totals
               </h2>
